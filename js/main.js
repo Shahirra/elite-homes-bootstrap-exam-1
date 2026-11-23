@@ -34,3 +34,43 @@ serviceTabs.forEach(function (tab) {
 });
 
 // End Services Tabs
+
+
+// Start Navbar Active Link on Scroll
+
+const navbar = document.querySelector(".custom-navbar");
+const navLinks = document.querySelectorAll(".navbar-nav .nav-link[href^='#']");
+
+const sections = document.querySelectorAll(
+  "#home, #properties, #services, #testimonials, #faq, #contact"
+);
+
+function updateActiveLink() {
+  let currentSection = "home";
+
+  const scrollPosition =
+    window.scrollY + navbar.offsetHeight + 100;
+
+  sections.forEach((section) => {
+    if (scrollPosition >= section.offsetTop) {
+      currentSection = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const targetId = link.getAttribute("href").substring(1);
+
+    const isActive = targetId === currentSection;
+
+    link.classList.toggle("active", isActive);
+    link.classList.toggle("fw-bold", isActive);
+  });
+}
+
+// Detect Scroll
+window.addEventListener("scroll", updateActiveLink);
+
+// Set Initial Active Link
+window.addEventListener("load", updateActiveLink);
+
+// End Navbar Active Link on Scroll
