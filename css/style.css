@@ -37,9 +37,9 @@ body {
    3. NAVBAR
 ======================================== */
 
-/* .custom-navbar {
-    padding-block: 0;
-} */
+.custom-navbar {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
 
 /* Navigation Links */
 
@@ -509,7 +509,7 @@ body {
 
 .schedule-btn:hover {
     background-color: #DDD6FF;
-    color:#7C3AED
+    color: #7C3AED
 }
 
 
@@ -535,6 +535,9 @@ body {
 
 .services-section {
     background-color: #FFFFFF;
+    /* Default Buying Colors */
+    --service-color: #7C3AED;
+    --service-light: #F0EAFE;
 }
 
 /* SECTION HEADING */
@@ -558,7 +561,8 @@ body {
 }
 
 .services-title {
-    font-size: 40px;
+    font-size: 45px;
+    font-weight: 800;
     width: fit-content;
     background: linear-gradient(to right, #7C3AED, #A000FF, #F59E0B);
     background-clip: text;
@@ -575,6 +579,7 @@ body {
 
 .services-tabs {
     border-color: #E4E7EC !important;
+    max-width: 1100px;
 }
 
 .service-tab {
@@ -586,19 +591,22 @@ body {
     padding: 18px 24px;
     transition: 0.3s;
     border-bottom: 2px solid transparent;
+    cursor: pointer;
 }
 
 /* Hover Effect */
+
 .service-tab:hover {
-    color: #7C3AED;
-    background-color: transparent;
+    color: #7C3AED !important;
+    background-color: transparent !important;
     border-bottom-color: #DDD6FF;
 }
 
 /* Active Effect */
+
 .service-tab.active {
-    color: #7C3AED;
-    background-color: #F5F0FF;
+    color: #7C3AED !important;
+    background-color: #F5F0FF !important;
     border-bottom-color: #7C3AED;
 }
 
@@ -606,6 +614,8 @@ body {
 
 .service-content {
     display: none;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .service-content.active {
@@ -626,14 +636,18 @@ body {
 
 /* SERVICE FEATURES */
 
+.service-feature {
+    align-items: flex-start;
+}
+
 .feature-icon {
     min-width: 41px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #7C3AED;
-    background-color: #F0EAFE;
+    color: var(--service-color);
+    background-color: var(--service-light);
     border-radius: 10px;
 }
 
@@ -654,7 +668,7 @@ body {
 /* SERVICE BUTTON */
 
 .service-btn {
-    background-color: #7C3AED;
+    background-color: var(--service-color);
     color: #FFFFFF;
     padding: 16px 32px;
     font-weight: 600;
@@ -663,8 +677,9 @@ body {
 }
 
 .service-btn:hover {
-    background-color: #6D28D9;
+    background-color: var(--service-color);
     color: #FFFFFF;
+    filter: brightness(0.9);
 }
 
 /* SERVICE IMAGE */
@@ -681,15 +696,24 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* SERVICE STAT */
+
 .service-stat {
     position: absolute;
+    bottom: -30px !important;
+    left: -30px !important;
+    right: auto;
+    margin: 0 !important;
     background-color: #FFFFFF;
+    padding: 20px 24px !important;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    min-width: 180px;
+    z-index: 2;
 }
 
 .service-stat h3 {
-    color: #7C3AED;
+    color: var(--service-color);
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 3px;
@@ -701,3 +725,1138 @@ body {
     margin-bottom: 0;
 }
 
+/* SELLING THEME - GREEN */
+
+.services-section:has(#selling.active) {
+    --service-color: #00A63E;
+    --service-light: #DCFCE7;
+}
+
+/* RENTING THEME - PURPLE */
+
+.services-section:has(#renting.active) {
+    --service-color: #9810FA;
+    --service-light: #F3E8FF;
+}
+
+/* INVESTING THEME - GOLD */
+
+.services-section:has(#investing.active) {
+    --service-color: #D08700;
+    --service-light: #FEF9C3;
+}
+
+/* COMMERCIAL THEME - BLUE/PURPLE */
+
+.services-section:has(#commercial.active) {
+    --service-color: #4F3BFA;
+    --service-light: #E0E7FF;
+}
+
+/* STAT POSITION */
+
+.services-section:has(#selling.active) .service-stat,
+.services-section:has(#investing.active) .service-stat {
+    left: auto !important;
+    right: -30px !important;
+}
+
+
+/* ========================================
+   WHAT OUR CLIENTS SAY
+======================================== */
+
+.client-stories-section {
+    background: linear-gradient(135deg, #51169A 0%, #64159A 100%);
+}
+
+
+/* SECTION LABEL */
+
+.client-stories-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: fit-content;
+}
+
+/* Lines Before and After */
+
+.client-stories-label::before,
+.client-stories-label::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #F59E0B);
+}
+
+.client-stories-label::after {
+    transform: rotate(180deg);
+}
+
+/* Label Badge */
+
+.client-stories-label span {
+    color: #7C3AED;
+    background-color: #F5F0FF;
+    border: 1px solid #DDD6FE;
+    border-radius: 50rem;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* SECTION TITLE */
+
+.client-stories-title {
+    color: #FFFFFF;
+    font-size: clamp(28px, 4vw, 52px);
+}
+
+
+/* SECTION DESCRIPTION */
+
+.client-stories-description {
+    max-width: 700px;
+    color: #E9DDF7;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.5;
+}
+
+
+/* CAROUSEL */
+
+.client-stories-carousel {
+    max-width: 1050px;
+    padding: 0 75px 65px;
+}
+
+
+/* REVIEW CARD */
+
+.client-review-card {
+    min-height: 340px;
+    color: #364153;
+    box-shadow: 0 12px 30px rgba(20, 5, 45, 0.16);
+}
+
+
+/* STARS */
+
+.client-review-stars {
+    display: flex;
+    gap: 3px;
+    font-size: 21px;
+}
+
+
+/* REVIEW TEXT */
+
+.client-review-text {
+    color: #475467;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.8;
+}
+
+
+/* CLIENT AVATAR */
+
+.client-avatar {
+    width: 68px;
+    height: 68px;
+    overflow: hidden;
+}
+
+
+/* CLIENT NAME */
+
+.client-name {
+    color: #101828;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* CLIENT ROLE */
+
+.client-role {
+    color: #475467;
+    font-size: 15px;
+}
+
+
+/* CLIENT DETAILS */
+
+.client-detail {
+    color: #667085;
+    font-size: 13px;
+}
+
+
+/* CAROUSEL CONTROLS */
+
+.client-carousel-control {
+    top: 0;
+    bottom: 65px;
+    width: 55px;
+    opacity: 1;
+}
+
+.client-carousel-control.carousel-control-prev {
+    left: -40px;
+}
+
+.client-carousel-control.carousel-control-next {
+    right: -40px;
+}
+
+/* Medium screens: 768px and above */
+@media (max-width: 991px) {
+    .client-carousel-control.carousel-control-prev {
+        left: -15px;
+    }
+
+    .client-carousel-control.carousel-control-next {
+        right: -15px;
+    }
+}
+
+/* Small screens and below: hide arrows */
+@media (max-width: 767px) {
+    .client-carousel-control {
+        display: none;
+    }
+}
+
+/* ARROW CIRCLE */
+
+.client-carousel-arrow {
+    width: 52px;
+    height: 52px;
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: background-color 0.25s ease;
+}
+
+.client-carousel-control:hover .client-carousel-arrow {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* CAROUSEL INDICATORS */
+
+.client-carousel-indicators {
+    bottom: 0;
+    margin-bottom: 0;
+    gap: 2px;
+}
+
+.client-carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #C4A3E5;
+    opacity: 1;
+}
+
+.client-carousel-indicators .active {
+    background-color: #FFFFFF;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 767.98px) {
+
+    .client-stories-carousel {
+        padding: 0 0 55px;
+    }
+
+    .client-review-card {
+        min-height: auto;
+    }
+
+    .client-carousel-control {
+        top: auto;
+        bottom: 0;
+        width: 42px;
+        height: 42px;
+    }
+
+    .client-carousel-control.carousel-control-prev {
+        left: calc(50% - 95px);
+    }
+
+    .client-carousel-control.carousel-control-next {
+        right: calc(50% - 95px);
+    }
+
+    .client-carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
+
+    .client-carousel-indicators {
+        bottom: 13px;
+    }
+
+    .client-carousel-indicators [data-bs-target] {
+        width: 9px;
+        height: 9px;
+    }
+
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #F9FAFB;
+}
+
+/* FAQ Label */
+.faq-label {
+    width: 100%;
+}
+
+.faq-label span {
+    color: var(--main-color);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 22px;
+    border: 2px solid #e4d9fa;
+    border-radius: 50rem;
+    background-color: #f8f5ff;
+    white-space: nowrap;
+}
+
+.faq-label::before,
+.faq-label::after {
+    content: "";
+    width: 65px;
+    height: 2px;
+    flex-shrink: 0;
+    background: linear-gradient(to right,
+            transparent,
+            var(--main-color));
+}
+
+.faq-label::after {
+    background: linear-gradient(to left,
+            transparent,
+            var(--main-color));
+}
+
+/* FAQ Heading */
+.faq-title {
+    font-weight: 800;
+    background: linear-gradient(90deg, #7F22FE, #9610F9);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(32px, 4vw, 50px);
+}
+
+/* FAQ Description */
+.faq-description {
+    color: var(--text-primary);
+    font-size: 20px;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+/* Accordion Width */
+.faq-accordion {
+    max-width: 935px;
+}
+
+/* FAQ Item */
+.faq-item {
+    overflow: hidden;
+}
+
+/* Accordion Button */
+.faq-item .accordion-button {
+    color: #202735;
+    font-size: 20px;
+    padding: 25px 33px;
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background-color: #F9FAFB;
+}
+
+/* Open Question */
+.faq-item .accordion-button:not(.collapsed) {
+    background-color: #fff;
+    color: #202735;
+}
+
+/* Accordion Answer */
+.faq-item .accordion-body {
+    color: #526071;
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 20px 33px 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .faq-description {
+        font-size: 16px;
+    }
+
+    .faq-label::before,
+    .faq-label::after {
+        width: 35px;
+    }
+
+    .faq-item .accordion-button {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .faq-item .accordion-body {
+        font-size: 15px;
+        padding: 15px 20px 20px;
+    }
+}
+
+
+/* =========================
+   Contact Section
+========================= */
+
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.contact-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+   Background Decorations
+========================= */
+
+/* الدائرتين الكبيرتين */
+.contact-decoration {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #F5F3FE;
+    pointer-events: none;
+}
+
+
+.contact-decoration-top {
+    top: -115px;
+    right: -150px;
+}
+
+
+.contact-decoration-bottom {
+    bottom: -130px;
+    left: -180px;
+}
+
+
+.contact-decoration span {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 4px solid #DDD6FF;
+    border-radius: 50%;
+    background: transparent;
+}
+
+
+.contact-decoration-top span {
+    bottom: 10px;
+    left: 10px;
+}
+
+
+.contact-decoration-bottom span {
+    width: 100px;
+    height: 100px;
+    top: 60px;
+    right: -40px;
+}
+
+
+/* =========================
+   Section Header
+========================= */
+
+.contact-label {
+    color: #7c20ed;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.contact-label::before,
+.contact-label::after {
+    content: "";
+    width: 55px;
+    height: 2px;
+    background: linear-gradient(to right,
+            transparent,
+            var(--main-color));
+}
+
+.contact-label::after {
+    background: linear-gradient(to left,
+            transparent,
+            var(--main-color));
+}
+
+.contact-label span {
+    padding: 5px 15px;
+    border: 2px solid #DDD6FF;
+    border-radius: 50rem;
+    color: #7c20ed;
+}
+
+
+/* Get In Touch */
+.contact-title {
+    color: #7c20ed;
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 800;
+}
+
+.contact-title span {
+    background: linear-gradient(100deg,
+            #a044e8 0%,
+            #d47bbd 55%,
+            #f0a58c 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Description */
+.contact-description {
+    color: #495057;
+    font-size: 16px;
+    max-width: 550px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   Contact Cards
+========================= */
+
+.contact-card {
+    background-color: #fff;
+    border: 2px solid #F3F4F6;
+    border-radius: 12px;
+    transition: transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Card Hover */
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Border Colors */
+.contact-card-purple:hover {
+    border-color: #C4B4FF;
+}
+
+.contact-card-pink:hover {
+    border-color: #DAB2FF;
+}
+
+.contact-card-orange:hover {
+    border-color: #F4A8FF;
+}
+
+.contact-card-blue:hover {
+    border-color: #A3B3FF;
+}
+
+
+/* Contact Icons */
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Icon Zoom */
+.contact-card:hover .contact-icon {
+    transform: scale(1.12);
+}
+
+
+/* Icon Gradients */
+.contact-icon-purple {
+    background: #863AFF;
+}
+
+.contact-icon-pink {
+    background: #A333FF;
+}
+
+.contact-icon-orange {
+    background: linear-gradient(135deg,
+            #d946ef,
+            #f59e0b);
+}
+
+.contact-icon-blue {
+    background: linear-gradient(135deg,
+            #5E59FF,
+            #5240F8);
+}
+
+
+/* Card Text */
+.contact-card h3 {
+    color: #212529;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contact-card p {
+    color: #495057;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.contact-card a {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card-purple a {
+    color: #863AFF;
+}
+
+.contact-card-purple a:hover {
+    color: #7008E7;
+}
+
+.contact-card-pink a {
+    color: #A333FF
+}
+
+.contact-card-pink a:hover {
+    color: #8200DB;
+}
+
+.contact-card-orange .visit-us {
+    color: #E60076;
+    font-weight: 600;
+}
+
+.contact-card-blue span {
+    color: #5B54FE;
+    font-weight: 600;
+    font-size: 14px
+}
+
+
+
+/* =========================
+   Contact Information
+========================= */
+
+.contact-info {
+    background-color: #f5f6f9;
+    border-radius: 12px;
+}
+
+.contact-info h3 {
+    color: #212529;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* Information Icons */
+.info-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #7c3aed;
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+
+/* Information Text */
+.contact-info-item h4 {
+    color: #343a40;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.contact-info-item p {
+    color: #495057;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   Connect With Us
+========================= */
+
+.contact-social {
+    color: #fff;
+    background: linear-gradient(115deg,
+            #8424f5 0%,
+            #a000f5 100%);
+    border-radius: 12px;
+}
+
+.contact-social h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-left: 16px;
+}
+
+.contact-social p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    padding-left: 16px;
+}
+
+
+/* Social Icons */
+.contact-social a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #A14AFD;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Social Hover */
+.contact-social a:hover {
+    background-color: #B25CFC;
+    transform: scale(1.12);
+}
+
+
+/* =========================
+   Contact Form
+========================= */
+
+.contact-form-wrapper {
+    background-color: #fff;
+    border: 2px solid #F3F4F6;
+    border-radius: 12px;
+}
+
+.contact-form-wrapper h3 {
+    color: #212529;
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-form-description {
+    color: #495057;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+
+/* Labels */
+.contact-form-wrapper .form-label {
+    color: #343a40;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.contact-form-wrapper .form-label span {
+    color: #dc3545;
+}
+
+
+/* Inputs */
+.contact-form-wrapper .form-control,
+.contact-form-wrapper .form-select {
+    color: #212529;
+    font-size: 13px;
+    background-color: #f8f9fc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 11px 13px;
+}
+
+
+/* Placeholder Only */
+.contact-form-wrapper .form-control::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+}
+
+
+/* Select Text */
+.contact-form-wrapper .form-select {
+    color: #212529;
+}
+
+.contact-form-wrapper .form-select:invalid {
+    color: #212529;
+}
+
+
+/* Input Focus */
+.contact-form-wrapper .form-control:focus,
+.contact-form-wrapper .form-select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.15rem rgba(124, 58, 237, 0.15);
+}
+
+
+/* Textarea */
+.contact-form-wrapper textarea {
+    resize: vertical;
+}
+
+
+/* Checkbox */
+.contact-check {
+    background-color: #f5f1ff;
+    padding: 10px 12px 10px 35px;
+    border-radius: 12px;
+}
+
+.contact-check .form-check-input {
+    margin-top: 3px;
+}
+
+.contact-check .form-check-input:checked {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+.contact-check .form-check-label {
+    color: #495057;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Send Message Button
+========================= */
+
+.contact-submit {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(100deg,
+            #8424f5 0%,
+            #a000f5 100%);
+
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button Hover */
+.contact-submit:hover {
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+
+/* Privacy Text */
+.contact-privacy {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 991.98px) {
+
+    .contact-title {
+        font-size: 36px;
+    }
+
+    .contact-card h3 {
+        font-size: 16px;
+    }
+
+    .contact-info h3 {
+        font-size: 20px;
+    }
+
+    .contact-form-wrapper h3 {
+        font-size: 21px;
+    }
+
+    .contact-decoration {
+        width: 280px;
+        height: 280px;
+    }
+
+    .contact-decoration span {
+        width: 120px;
+        height: 120px;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .contact-title {
+        font-size: 32px;
+    }
+
+    .contact-description {
+        font-size: 14px;
+    }
+
+    .contact-card h3 {
+        font-size: 17px;
+    }
+
+    .contact-card p,
+    .contact-card a {
+        font-size: 13px;
+    }
+
+    .contact-info-item h4 {
+        font-size: 14px;
+    }
+
+    .contact-info-item p {
+        font-size: 12px;
+    }
+
+    .contact-form-wrapper h3 {
+        font-size: 20px;
+    }
+
+    .contact-form-description {
+        font-size: 13px;
+    }
+
+    .contact-privacy {
+        font-size: 11px;
+    }
+
+    .contact-decoration {
+        width: 220px;
+        height: 220px;
+    }
+
+    .contact-decoration span {
+        width: 95px;
+        height: 95px;
+        border-width: 2px;
+    }
+
+}
+
+/* =========================
+   Footer Section
+========================= */
+
+.footer-section {
+    background: linear-gradient(110deg,
+            #4E1799 0%,
+            #531793 50%,
+            #59168C 100%);
+
+    color: #fff;
+    padding: 25px 0 35px;
+}
+
+
+/* Footer Top */
+
+.footer-top {
+    min-height: 55px;
+}
+
+
+/* Footer Logo */
+
+.footer-logo {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.footer-logo span {
+    color: #fff;
+}
+
+.footer-logo:hover {
+    color: #e9d5ff;
+}
+
+
+/* Copyright */
+
+.footer-copyright {
+    color: #e5d5f5;
+    font-size: 15px;
+}
+
+
+/* =========================
+   Footer Social Icons
+========================= */
+
+.footer-social a {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    font-size: 17px;
+    text-decoration: none;
+    transition: transform 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Social Hover */
+
+.footer-social a:hover {
+    color: var(--main-color);
+    background-color: #fff;
+    transform: scale(1.12);
+}
+
+
+/* =========================
+   Footer Divider
+========================= */
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #652F9E;
+    opacity: 1;
+    margin: 25px 0;
+}
+
+
+/* =========================
+   Footer Bottom
+========================= */
+
+.footer-bottom p {
+    color: #e5d5f5;
+    font-size: 14px;
+}
+
+
+/* Heart Icon */
+
+.footer-heart {
+    color: #ff6b81;
+    margin: 0 3px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+    .footer-section {
+        padding: 30px;
+    }
+
+    .footer-top {
+        gap: 20px !important;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-copyright {
+        font-size: 14px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-divider {
+        margin: 25px 0 20px;
+    }
+
+    .footer-bottom p {
+        font-size: 13px;
+    }
+
+}
